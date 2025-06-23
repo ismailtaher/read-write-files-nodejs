@@ -59,3 +59,23 @@ fs.appendFile(
     console.log("Append complete");
   }
 );
+
+// updating a file
+
+fs.writeFile(
+  path.join(__dirname, "files", "replyWithAppend.txt"),
+  "Nice to meet you",
+  (err) => {
+    if (err) throw err;
+    console.log("Write with append complete");
+
+    fs.appendFile(
+      path.join(__dirname, "files", "replyWithAppend.txt"),
+      "\n\nYes it is",
+      (err) => {
+        if (err) throw err;
+        console.log("Append with write complete");
+      }
+    );
+  }
+);
