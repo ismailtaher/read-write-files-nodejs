@@ -84,6 +84,8 @@ fs.appendFile(
 // renaming a file after updating it
 //
 
+// Note: All these operations are async but we are controlling when they come into action by nesting them in the callbacks of operations we need them to occur after
+
 fs.writeFile(
   path.join(__dirname, "files", "replyWithAppend.txt"),
   "Nice to meet you",
