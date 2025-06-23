@@ -49,6 +49,8 @@ fs.writeFile(
 // appendFile
 //
 
+// creating a file
+
 fs.appendFile(
   path.join(__dirname, "files", "test.txt"),
   "Testing text",
