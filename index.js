@@ -1,3 +1,7 @@
+//
+// readFile
+//
+
 // ES Module
 /* import { readFile } from "node:fs";
 
@@ -25,3 +29,16 @@ process.on("uncaughtException", (err) => {
   console.error(`There was an uncaught error: ${err}`);
   process.exit(1);
 });
+
+//
+// writeFile
+//
+
+fs.writeFile(
+  path.join(__dirname, "files", "reply.txt"),
+  "Nice to meet you",
+  (err) => {
+    if (err) throw err;
+    console.log("write complete");
+  }
+);
