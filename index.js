@@ -25,6 +25,8 @@ fs.readFile(
 
 console.log("Hello!");
 
+// catch error uncaughtException
+
 process.on("uncaughtException", (err) => {
   console.error(`There was an uncaught error: ${err}`);
   process.exit(1);
@@ -40,5 +42,18 @@ fs.writeFile(
   (err) => {
     if (err) throw err;
     console.log("write complete");
+  }
+);
+
+//
+// appendFile
+//
+
+fs.appendFile(
+  path.join(__dirname, "files", "test.txt"),
+  "Testing text",
+  (err) => {
+    if (err) throw err;
+    console.log("Append complete");
   }
 );
