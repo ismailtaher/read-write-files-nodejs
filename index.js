@@ -62,6 +62,28 @@ fs.appendFile(
 
 // updating a file
 
+/* fs.writeFile(
+  path.join(__dirname, "files", "replyWithAppend.txt"),
+  "Nice to meet you",
+  (err) => {
+    if (err) throw err;
+    console.log("Write with append complete");
+
+    fs.appendFile(
+      path.join(__dirname, "files", "replyWithAppend.txt"),
+      "\n\nYes it is",
+      (err) => {
+        if (err) throw err;
+        console.log("Append with write complete");
+      }
+    );
+  }
+); */
+
+//
+// renaming a file after updating it
+//
+
 fs.writeFile(
   path.join(__dirname, "files", "replyWithAppend.txt"),
   "Nice to meet you",
@@ -75,6 +97,15 @@ fs.writeFile(
       (err) => {
         if (err) throw err;
         console.log("Append with write complete");
+
+        fs.rename(
+          path.join(__dirname, "files", "replyWithAppend.txt"),
+          path.join(__dirname, "files", "newReplyWithAppend.txt"),
+          (err) => {
+            if (err) throw err;
+            console.log("Rename inside Write>Append complete");
+          }
+        );
       }
     );
   }
