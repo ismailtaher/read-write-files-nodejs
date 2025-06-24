@@ -116,11 +116,33 @@ const fsPromises = require("fs").promises;
 
 const fileOps = async () => {
   try {
+    // read file
     const data = await fsPromises.readFile(
       path.join(__dirname, "files", "starter.txt"),
       "utf8"
     );
     console.log(data);
+    // write file
+    await fsPromises.writeFile(
+      path.join(__dirname, "files", "promiseWrite.txt"),
+      data
+    );
+    // append file
+    await fsPromises.appendFile(
+      path.join(__dirname, "files", "promiseWrite.txt"),
+      "\n\nNice to meet you"
+    );
+    // rename
+    await fsPromises.rename(
+      path.join(__dirname, "files", "promiseWrite.txt"),
+      path.join(__dirname, "files", "promiseComplete.txt")
+    );
+    // read new file
+    const newData = await fsPromises.readFile(
+      path.join(__dirname, "files", "promiseComplete.txt"),
+      "utf8"
+    );
+    console.log(newData);
   } catch (err) {
     console.error(err);
   }
